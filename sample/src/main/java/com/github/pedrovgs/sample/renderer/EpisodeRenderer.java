@@ -19,8 +19,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import com.github.pedrovgs.sample.R;
 import com.github.pedrovgs.sample.viewmodel.EpisodeViewModel;
 import com.pedrogomez.renderers.Renderer;
@@ -33,9 +34,9 @@ import com.pedrogomez.renderers.Renderer;
  */
 public class EpisodeRenderer extends Renderer<EpisodeViewModel> {
 
-  @InjectView(R.id.tv_episode_number) TextView episodeNumberTextView;
-  @InjectView(R.id.tv_episode_title) TextView episodeTitleTextView;
-  @InjectView(R.id.tv_episode_publish_date) TextView episodeDateTextView;
+  @BindView(R.id.tv_episode_number) TextView episodeNumberTextView;
+  @BindView(R.id.tv_episode_title) TextView episodeTitleTextView;
+  @BindView(R.id.tv_episode_publish_date) TextView episodeDateTextView;
 
   private int position;
 
@@ -50,7 +51,7 @@ public class EpisodeRenderer extends Renderer<EpisodeViewModel> {
    * Apply ButterKnife inject method to support view injections.
    */
   @Override protected void setUpView(View view) {
-    ButterKnife.inject(this, view);
+    ButterKnife.bind(this, view);
   }
 
   @Override protected void hookListeners(View view) {

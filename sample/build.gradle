@@ -2,16 +2,17 @@ apply plugin: 'com.android.application'
 apply plugin: 'checkstyle'
 
 dependencies {
-  compile project(':draggablepanel')
-  compile 'com.squareup.picasso:picasso:2.1.1'
-  compile 'javax.inject:javax.inject:1@jar'
-  compile 'com.squareup.dagger:dagger-compiler:1.1.0'
-  compile 'com.jakewharton:butterknife:4.0.1'
-  compile 'com.squareup.dagger:dagger:1.1.0'
-  compile 'com.github.pedrovgs:renderers:1.0.9'
-  compile 'com.google.android.gms:play-services:4.1.32'
-  compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
-  compile files('libs/YouTubeAndroidPlayerApi.jar')
+  implementation project(':draggablepanel')
+  implementation 'com.squareup.picasso:picasso:2.5.2'
+  implementation 'javax.inject:javax.inject:1@jar'
+  implementation 'com.jakewharton:butterknife:8.8.1'
+  annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+  implementation 'com.github.pedrovgs:renderers:1.0.9'
+  implementation 'com.android.support:support-v4:27.1.1'
+  implementation 'com.google.dagger:dagger:2.14.1'
+  implementation 'com.google.android.gms:play-services-maps:15.0.0'
+  annotationProcessor 'com.google.dagger:dagger-compiler:2.14.1'
+  implementation files('libs/YouTubeAndroidPlayerApi.jar')
 }
 
 android {

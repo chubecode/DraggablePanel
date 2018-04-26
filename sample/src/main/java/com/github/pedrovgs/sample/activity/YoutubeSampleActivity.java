@@ -18,8 +18,9 @@ package com.github.pedrovgs.sample.activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.widget.ImageView;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 import com.github.pedrovgs.DraggableListener;
 import com.github.pedrovgs.DraggablePanel;
@@ -38,7 +39,7 @@ import com.squareup.picasso.Picasso;
 public class YoutubeSampleActivity extends FragmentActivity {
 
   private static final String YOUTUBE_API_KEY = "AIzaSyC1rMU-mkhoyTvBIdTnYU0dss0tU9vtK48";
-  private static final String VIDEO_KEY = "gsjtg7m1MMM";
+  private static final String VIDEO_KEY = "pwCaaico9M8";
   private static final String VIDEO_POSTER_THUMBNAIL =
       "http://4.bp.blogspot.com/-BT6IshdVsoA/UjfnTo_TkBI/AAAAAAAAMWk/JvDCYCoFRlQ/s1600/"
           + "xmenDOFP.wobbly.1.jpg";
@@ -47,8 +48,8 @@ public class YoutubeSampleActivity extends FragmentActivity {
           + "-wolverine-poster.jpg";
   private static final String VIDEO_POSTER_TITLE = "X-Men: Days of Future Past";
 
-  @InjectView(R.id.iv_thumbnail) ImageView thumbnailImageView;
-  @InjectView(R.id.draggable_panel) DraggablePanel draggablePanel;
+  @BindView(R.id.iv_thumbnail) ImageView thumbnailImageView;
+  @BindView(R.id.draggable_panel) DraggablePanel draggablePanel;
 
   private YouTubePlayer youtubePlayer;
   private YouTubePlayerSupportFragment youtubeFragment;
@@ -59,7 +60,7 @@ public class YoutubeSampleActivity extends FragmentActivity {
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_youtube_sample);
-    ButterKnife.inject(this);
+    ButterKnife.bind(this);
     initializeYoutubeFragment();
     initializeDraggablePanel();
     hookDraggablePanelListeners();

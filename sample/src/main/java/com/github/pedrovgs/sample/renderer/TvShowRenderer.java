@@ -21,8 +21,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import com.github.pedrovgs.sample.R;
 import com.github.pedrovgs.sample.viewmodel.TvShowViewModel;
 import com.pedrogomez.renderers.Renderer;
@@ -38,9 +39,9 @@ public class TvShowRenderer extends Renderer<TvShowViewModel> {
 
   private final Context context;
 
-  @InjectView(R.id.iv_thumbnail) ImageView thumbnailImageView;
-  @InjectView(R.id.tv_title) TextView titleTextView;
-  @InjectView(R.id.tv_seasons_counter) TextView seasonsCounterTextView;
+  @BindView(R.id.iv_thumbnail) ImageView thumbnailImageView;
+  @BindView(R.id.tv_title) TextView titleTextView;
+  @BindView(R.id.tv_seasons_counter) TextView seasonsCounterTextView;
 
   public TvShowRenderer(Context context) {
     this.context = context;
@@ -50,7 +51,7 @@ public class TvShowRenderer extends Renderer<TvShowViewModel> {
    * Apply ButterKnife inject method to support view injections.
    */
   @Override protected void setUpView(View view) {
-    ButterKnife.inject(this, view);
+    ButterKnife.bind(this, view);
   }
 
   @Override protected void hookListeners(View view) {

@@ -16,7 +16,8 @@
 package com.github.pedrovgs.transformer;
 
 import android.view.View;
-import com.nineoldandroids.view.ViewHelper;
+
+import com.github.pedrovgs.ViewHelper;
 
 /**
  * Transformer extension created to scale the view instead of resize it as the other

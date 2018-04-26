@@ -29,7 +29,6 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.github.pedrovgs.transformer.Transformer;
 import com.github.pedrovgs.transformer.TransformerFactory;
-import com.nineoldandroids.view.ViewHelper;
 
 /**
  * Class created to extends a ViewGroup and simulate the YoutubeLayoutComponent
@@ -47,7 +46,6 @@ public class DraggableView extends RelativeLayout {
   private static final boolean DEFAULT_ENABLE_HORIZONTAL_ALPHA_EFFECT = true;
   private static final boolean DEFAULT_ENABLE_CLICK_TO_MAXIMIZE = false;
   private static final boolean DEFAULT_ENABLE_CLICK_TO_MINIMIZE = false;
-  private static final boolean DEFAULT_ENABLE_TOUCH_LISTENER = true;
   private static final int MIN_SLIDING_DISTANCE_ON_CLICK = 10;
   private static final int ONE_HUNDRED = 100;
   private static final float SENSITIVITY = 1f;
@@ -333,14 +331,14 @@ public class DraggableView extends RelativeLayout {
     if (!isEnabled()) {
       return false;
     }
-    switch (MotionEventCompat.getActionMasked(ev) & MotionEventCompat.ACTION_MASK) {
+    switch (ev.getActionMasked() & MotionEvent.ACTION_MASK) {
       case MotionEvent.ACTION_CANCEL:
       case MotionEvent.ACTION_UP:
         viewDragHelper.cancel();
         return false;
       case MotionEvent.ACTION_DOWN:
-        int index = MotionEventCompat.getActionIndex(ev);
-        activePointerId = MotionEventCompat.getPointerId(ev, index);
+        int index = ev.getActionIndex();
+        activePointerId = ev.getPointerId( index);
         if (activePointerId == INVALID_POINTER) {
           return false;
         }
@@ -359,9 +357,9 @@ public class DraggableView extends RelativeLayout {
    * @return true if the touch event is realized over the drag or second view.
    */
   @Override public boolean onTouchEvent(MotionEvent ev) {
-    int actionMasked = MotionEventCompat.getActionMasked(ev);
-    if ((actionMasked & MotionEventCompat.ACTION_MASK) == MotionEvent.ACTION_DOWN) {
-      activePointerId = MotionEventCompat.getPointerId(ev, actionMasked);
+    int actionMasked = ev.getActionMasked();
+    if ((actionMasked & MotionEvent.ACTION_MASK) == MotionEvent.ACTION_DOWN) {
+      activePointerId = ev.getPointerId( actionMasked);
     }
     if (activePointerId == INVALID_POINTER) {
       return false;

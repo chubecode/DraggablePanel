@@ -17,7 +17,8 @@ package com.github.pedrovgs.transformer;
 
 import android.view.View;
 import android.widget.RelativeLayout;
-import com.nineoldandroids.view.ViewHelper;
+
+import com.github.pedrovgs.ViewHelper;
 
 /**
  * Abstract class created to be implemented by different classes are going to change the size of a

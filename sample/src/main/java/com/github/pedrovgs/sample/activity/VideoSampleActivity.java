@@ -21,8 +21,9 @@ import android.support.v4.app.FragmentActivity;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.VideoView;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 import com.github.pedrovgs.DraggableListener;
 import com.github.pedrovgs.DraggableView;
@@ -46,10 +47,10 @@ public class VideoSampleActivity extends FragmentActivity {
           + "man-2-poster-green-goblin.jpg";
   private static final String VIDEO_TITLE = "The Amazing Spider-Man 2: Rise of Electro";
 
-  @InjectView(R.id.draggable_view) DraggableView draggableView;
-  @InjectView(R.id.video_view) VideoView videoView;
-  @InjectView(R.id.iv_thumbnail) ImageView thumbnailImageView;
-  @InjectView(R.id.iv_poster) ImageView posterImageView;
+  @BindView(R.id.draggable_view) DraggableView draggableView;
+  @BindView(R.id.video_view) VideoView videoView;
+  @BindView(R.id.iv_thumbnail) ImageView thumbnailImageView;
+  @BindView(R.id.iv_poster) ImageView posterImageView;
 
   /**
    * Initialize the Activity with some injected data.
@@ -57,11 +58,13 @@ public class VideoSampleActivity extends FragmentActivity {
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_video_sample);
-    ButterKnife.inject(this);
+    ButterKnife.bind(this);
     initializeVideoView();
     initializePoster();
     hookDraggableViewListener();
   }
+
+
 
   /**
    * Method triggered when the iv_thumbnail widget is clicked. This method shows a toast with the

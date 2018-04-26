@@ -16,8 +16,11 @@
 package com.github.pedrovgs.sample.activity;
 
 import android.os.Bundle;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
+import android.support.v4.app.FragmentActivity;
+
 import com.github.pedrovgs.sample.DraggablePanelApplication;
+
+import butterknife.ButterKnife;
 
 /**
  * Base FragmentActivity created to support dependency injection in activities extending this
@@ -26,7 +29,7 @@ import com.github.pedrovgs.sample.DraggablePanelApplication;
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
-public class DIFragmentActivity extends SherlockFragmentActivity {
+public class DIFragmentActivity extends FragmentActivity {
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
